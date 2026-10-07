@@ -39,7 +39,7 @@ header{position:relative}
 .card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,84,70,0) 35%,var(--green) 100%)}
 .card .body{position:relative;padding:0 22px 24px}
 .ic{width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;margin-bottom:12px}
-.ic svg{width:28px;height:28px;stroke:var(--green);fill:none;stroke-width:1.6}
+.ic svg{width:28px;height:28px;stroke:var(--green);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .card h3{font-size:24px;font-weight:500}
 .card p{font-size:14px;margin:6px 0 16px;opacity:.95}
 .wbtn{display:inline-block;background:#fff;color:var(--green);font-size:13px;font-weight:500;padding:10px 18px;border-radius:3px;margin:0 8px 8px 0;min-width:190px;text-align:center}
@@ -111,24 +111,21 @@ svg.i{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8;flex:0 0 22p
 .mmenu a{display:block;padding:10px 22px;color:#2f6e66;font-weight:600;font-size:15px;transition:background .15s}
 .mmenu a:hover{background:#eef4f2}
 .mmenu .sep{height:1px;background:#e3e8e6;margin:6px 0}
-.mmenu .m-search{display:none}
-@media(max-width:1240px){
- .nav1{font-size:15px}.nav1 .wrap{gap:20px}.nav1 .wrap a:last-of-type{margin-right:20px}.search{width:200px}
- .nav2 .wrap{gap:26px;font-size:15.5px}.btn-maroon{padding:0 20px;font-size:16px}
-}
-@media(max-width:1060px){
- .nav1 .wrap>a,.nav2 .wrap>a:not(.btn-maroon){display:none}
- .menu-btn{display:inline-flex}
- .nav2 .wrap{gap:12px}
- .logo{width:150px;height:158px}
- .nav1 .wrap,.nav2 .wrap{padding-left:194px}
-}
+/* fluid sizing: nav shrinks smoothly before anything is hidden */
+.nav1{font-size:clamp(13px,1.15vw,16px)}.nav1 .wrap{gap:clamp(12px,1.9vw,28px)}.nav1 .wrap a:last-of-type{margin-right:clamp(8px,2.6vw,40px)}
+.search{width:clamp(160px,17vw,250px)}
+.nav2 .wrap{gap:clamp(14px,2.5vw,38px);font-size:clamp(13.5px,1.2vw,16.5px)}
+.btn-maroon{padding:0 clamp(14px,1.8vw,26px);font-size:clamp(14px,1.2vw,17px)}
+.nav-hidden{display:none!important}
+.has-more .menu-btn{display:inline-flex}
+.mmenu a{display:none}.mmenu a.show{display:block}.mmenu .sep{display:none}.mmenu .sep.show{display:block}
+@media(max-width:1060px){.logo{width:150px;height:158px}.nav1 .wrap,.nav2 .wrap{padding-left:194px}}
 @media(max-width:1100px){.qgrid{grid-template-columns:1fr 1fr}.legacy{grid-column:1/-1}}
 @media(max-width:600px){
  .logo{width:112px;height:118px;left:16px}
  .nav1 .wrap,.nav2 .wrap{padding-left:140px}
  .nav1 .wrap{height:52px}.nav2 .wrap{height:66px}
- .search{display:none}.mmenu .m-search{display:block}
+ .search{display:none}
  .btn-maroon{font-size:14px;padding:0 14px;height:42px;margin-left:0}
  .menu-btn{padding:0 12px;height:42px}.menu-btn span{display:none}
  .mmenu{top:118px;left:16px;right:16px}
@@ -170,9 +167,9 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
 <header>
- <div class="nav1"><div class="wrap"><a>Departments &amp; Centers</a><a>Stories</a><a>Giving</a><a>Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
- <div class="nav2"><div class="wrap"><a>Patient Care</a><a>Education</a><a>Research</a><a>Community</a><a>About MCW</a><button class="menu-btn" aria-expanded="false" aria-controls="mmenu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button><a class="btn-maroon">Find A Doctor</a></div></div>
- <nav class="mmenu" id="mmenu" aria-label="Main menu"><a class="m-search">Search MCW</a><a>Patient Care</a><a>Education</a><a>Research</a><a>Community</a><a>About MCW</a><div class="sep"></div><a>Departments &amp; Centers</a><a>Stories</a><a>Giving</a><a>Careers</a></nav>
+ <div class="nav1"><div class="wrap"><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
+ <div class="nav2"><div class="wrap"><a data-k="n2-0">Patient Care</a><a data-k="n2-1">Education</a><a data-k="n2-2">Research</a><a data-k="n2-3">Community</a><a data-k="n2-4">About MCW</a><button class="menu-btn" aria-expanded="false" aria-controls="mmenu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button><a class="btn-maroon">Find A Doctor</a></div></div>
+ <nav class="mmenu" id="mmenu" aria-label="More links"><a data-k="search">Search MCW</a><a data-k="n2-0">Patient Care</a><a data-k="n2-1">Education</a><a data-k="n2-2">Research</a><a data-k="n2-3">Community</a><a data-k="n2-4">About MCW</a><div class="sep"></div><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a></nav>
  <a class="logo"><img src="img/mcwbox.png" alt="Medical College of Wisconsin — knowledge changing life"></a>
 </header>
 
@@ -187,7 +184,7 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10z"/></svg></div>
    <h3>For Volunteers</h3><p>Physician and volunteer sign-up is open.<br>Student volunteer sign-up coming soon.</p><a class="wbtn arrow">Physician Sign Up</a><br><a class="wbtn arrow">Volunteer Sign Up</a></div></div>
   <div class="card"><div class="ph" style="background-image:url(img/team1.jpg);background-position:center 45%"></div><div class="body">
-   <div class="ic"><svg viewBox="0 0 24 24"><path d="M2 12l4-4 4 2 3-2 4 1 5 3M6 8l-3 7 5 4 3-1 2 2 2-1 2 2 4-5"/></svg></div>
+   <div class="ic"><svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
    <h3>For Partnerships</h3><p>Collaborate with SCU and our<br>FQ3 network of partner clinics.</p><a class="wbtn arrow">Partner with SCU</a></div></div>
  </div>
 
@@ -268,7 +265,30 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
  mbtn.addEventListener('click',function(e){e.stopPropagation();setMenu(!mm.classList.contains('open'));});
  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
  document.addEventListener('click',function(e){if(!mm.contains(e.target)&&e.target!==mbtn)setMenu(false);});
- window.addEventListener('resize',function(){if(window.innerWidth>1060)setMenu(false);});
+
+ /* priority+ nav: hide the lowest-priority links one at a time, only when they would hit the logo */
+ var header=document.querySelector('header'),logo=document.querySelector('.logo');
+ var order=['n2-4','n2-3','n1-3','n1-2','n2-2','n1-1','n2-1','n1-0','n2-0'];
+ function navItem(k){return document.querySelector('.nav1 [data-k="'+k+'"],.nav2 [data-k="'+k+'"]');}
+ function collides(){
+  var L=logo.getBoundingClientRect().right+16;
+  return [].some.call(document.querySelectorAll('.nav1 .wrap>*,.nav2 .wrap>*'),function(e){var r=e.getBoundingClientRect();return r.width>0&&r.left<L;});
+ }
+ function layoutNav(){
+  order.forEach(function(k){navItem(k).classList.remove('nav-hidden');});
+  header.classList.remove('has-more');
+  var hidden=[];
+  for(var i=0;i<order.length&&collides();i++){navItem(order[i]).classList.add('nav-hidden');hidden.push(order[i]);header.classList.add('has-more');}
+  var searchHidden=getComputedStyle(document.querySelector('.search')).display==='none';
+  if(searchHidden)header.classList.add('has-more');
+  mm.querySelectorAll('a').forEach(function(a){var k=a.dataset.k;a.classList.toggle('show',k==='search'?searchHidden:hidden.indexOf(k)>-1);});
+  var any1=hidden.some(function(k){return k.indexOf('n1')===0}),any2=hidden.some(function(k){return k.indexOf('n2')===0})||searchHidden;
+  mm.querySelector('.sep').classList.toggle('show',any1&&any2);
+  if(!header.classList.contains('has-more'))setMenu(false);
+ }
+ var rz;window.addEventListener('resize',function(){cancelAnimationFrame(rz);rz=requestAnimationFrame(layoutNav);});
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(layoutNav);
+ layoutNav();
 
 })();
 </script>
