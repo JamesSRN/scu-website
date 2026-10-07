@@ -165,6 +165,28 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
 .gimg{position:absolute;inset:0;background-size:cover;transition:transform .8s ease}
 .gi:hover .gimg{transform:scale(1.03)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.phonebar{background:#712b6b;color:#fff;font-size:14px}
+.phonebar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:40px;padding-left:238px;flex-wrap:wrap}
+.phonebar a{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.phonebar svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round}
+.phonebar b{font-size:19px;font-weight:600}
+.phonebar a:hover{text-decoration:underline}
+@media(max-width:1060px){.phonebar .wrap{padding-left:194px}}
+@media(max-width:600px){.phonebar .wrap{padding:6px 16px 6px 140px;justify-content:flex-end}.phonebar b{font-size:16px}.pb-911{font-size:12.5px}}
+.seal .only{font-weight:600;color:#7a5512}.seal p.quote{font-size:13px;font-style:italic;max-width:520px;color:#4a3b1c}
+.seal-link{display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:var(--green)}.seal-link:hover{text-decoration:underline}
+.seal{padding:18px 40px}
+.map{background:#dfe7e5;overflow:hidden}.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.soc .ig{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;border:1.5px solid #fff;border-radius:20px;padding:6px 14px 6px 10px;transition:background .2s,color .2s}
+.soc .ig svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8}
+.soc .ig:hover{background:#fff;color:#2f6e66}
+.dnote{font-size:10.5px;opacity:.85;margin-top:8px;line-height:1.4}
+html{scroll-behavior:smooth}
+.svc-modal{max-width:560px;max-height:88vh;display:flex;flex-direction:column}.svc-modal .bd{overflow:auto}
+.svc-modal h5{color:#2f6e66;font-size:15px;margin:4px 0 6px}.svc-modal .lead{font-size:13.5px;margin-bottom:4px}
+.svc-modal ul{margin:0 0 12px 18px;font-size:13.5px;line-height:1.5}.svc-modal ul.cols{columns:2;column-gap:24px}
+.svc-modal .spec{font-weight:600;color:#712b6b}.svc-modal .fine{font-size:12px;color:var(--muted);margin-top:6px}
 </style></head><body>
 <header>
  <div class="nav1"><div class="wrap"><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
@@ -172,6 +194,7 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
  <nav class="mmenu" id="mmenu" aria-label="More links"><a data-k="search">Search MCW</a><a data-k="n2-0">Patient Care</a><a data-k="n2-1">Education</a><a data-k="n2-2">Research</a><a data-k="n2-3">Community</a><a data-k="n2-4">About MCW</a><div class="sep"></div><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a></nav>
  <a class="logo"><img src="img/mcwbox.png" alt="Medical College of Wisconsin — knowledge changing life"></a>
 </header>
+<div class="phonebar"><div class="wrap"><a class="pb-911" href="tel:911"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 16.5v.5"/></svg>Medical emergency? Call 911.</a><a class="pb-phone" href="tel:+14145882865">Clinic Phone <svg viewBox="0 0 24 24"><path d="M5 3h4l2 5-3 2a11 11 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><b>(414) 588-2865</b></a></div></div>
 
 <section class="hero"><div class="wrap"><h1>Saturday Clinic for the Uninsured</h1><p>Free care for uninsured patients in Milwaukee.</p></div></section>
 
@@ -179,10 +202,10 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
  <div class="cards">
   <div class="card"><div class="ph" style="background-image:url(img/patients.jpg);background-position:center 30%"></div><div class="body">
    <div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg></div>
-   <h3>For Patients</h3><p>Find scheduling info, current services,<br>and patient resources.</p><a class="wbtn arrow">Go to Patient Resources</a></div></div>
+   <h3>For Patients</h3><p>Find information on<br>patient resources.</p><a class="wbtn arrow" href="https://milwaukee-scu-patient-resources.my-free.website/" target="_blank" rel="noopener">Go to Patient Resources</a></div></div>
   <div class="card"><div class="ph" style="background-image:url(img/volunteers.jpg);background-position:center 25%"></div><div class="body">
    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10z"/></svg></div>
-   <h3>For Volunteers</h3><p>Physician and volunteer sign-up is open.<br>Student volunteer sign-up coming soon.</p><a class="wbtn arrow">Physician Sign Up</a><br><a class="wbtn arrow">Volunteer Sign Up</a></div></div>
+   <h3>For Volunteers</h3><p>Physician and volunteer sign-up is open.<br>Student volunteer sign-up coming soon.</p><a class="wbtn arrow" href="https://mcwisc.co1.qualtrics.com/jfe/form/SV_d0GLzaxTZ0Vi3Ii" target="_blank" rel="noopener">Physician Sign Up</a><br><a class="wbtn arrow" href="https://mcwisc.co1.qualtrics.com/jfe/form/SV_6scc5P5tOGd8ngq" target="_blank" rel="noopener">Volunteer Sign Up</a></div></div>
   <div class="card"><div class="ph" style="background-image:url(img/team1.jpg);background-position:center 45%"></div><div class="body">
    <div class="ic"><svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
    <h3>For Partnerships</h3><p>Collaborate with SCU and our<br>FQ3 network of partner clinics.</p><a class="wbtn arrow">Partner with SCU</a></div></div>
@@ -191,9 +214,9 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
  <section class="ql"><h2>Current Services &amp; Quick Links</h2>
   <p class="note">*Please note these may change. For the most updated list please call our clinic at <a class="tel" href="tel:+14145882865"><b>(414) 588-2865</b></a>.</p>
   <div class="qgrid">
-   <a class="q"><svg viewBox="0 0 24 24"><path d="M5 3v6a4 4 0 0 0 8 0V3M9 13v3a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="12" r="2"/></svg><div><h4>Services</h4><p>View our current primary care and specialty services.</p></div></a>
-   <a class="q"><svg viewBox="0 0 24 24"><path d="M6 2h9l4 4v16H6z M14 2v5h5 M9 12h7 M9 16h7"/></svg><div><h4>Updated Welcome Packet</h4><p>Get important info before your visit.</p></div></a>
-   <a class="q"><svg viewBox="0 0 24 24"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h4>Location &amp; Hours</h4><p>Find our address, parking info, and clinic hours.</p></div></a>
+   <a class="q" id="svc-open" role="button" tabindex="0"><svg viewBox="0 0 24 24"><path d="M5 3v6a4 4 0 0 0 8 0V3M9 13v3a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="12" r="2"/></svg><div><h4>Current Services</h4><p>Primary care &amp; specialty — view our up-to-date service list.</p></div></a>
+   <a class="q" href="https://canva.link/3acdd45ynbl1ln7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6 2h9l4 4v16H6z M14 2v5h5 M9 12h7 M9 16h7"/></svg><div><h4>Updated Welcome Packet</h4><p>Get important info before your visit.</p></div></a>
+   <a class="q" href="#visit"><svg viewBox="0 0 24 24"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h4>Location &amp; Hours</h4><p>Find our address, parking info, and clinic hours.</p></div></a>
   
   <div class="legacy"><h4>Our Legacy</h4><p class="sub">Serving Milwaukee since 1991</p>
    <ol>
@@ -210,7 +233,7 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
   <div class="txt"><h2 class="sec" style="color:var(--green);font-weight:500;font-size:22px">About SCU</h2>
    <p>The Saturday Clinic for the Uninsured (SCU) is a student-run free clinic providing comprehensive care for uninsured patients in Milwaukee. We promote health and wellness in our community while training the next generation of health professionals.</p><a class="link arrow">Learn more about SCU</a></div>
   <div class="seal"><img class="sealimg" src="img/seal.png" alt="WAFCC Gold Seal of Excellence">
-   <div><h3>WAFCC Gold Seal of Excellence</h3><h4>2024 &amp; 2025</h4><p>Recognized for quality, accountability,<br>and exceptional patient care.</p></div></div>
+   <div><h3>WAFCC Gold Seal of Excellence</h3><h4>2024, 2025 &amp; 2026 &middot; <span class="only">The only Gold Seal clinic in Milwaukee</span></h4><p class="quote">&ldquo;WAFCC Seal of Excellence recipients demonstrate a commitment to promoting best practices and maximizing access to quality healthcare for the most vulnerable.&rdquo;</p><a class="seal-link arrow" href="https://www.wafcclinics.org/seals-of-excellence.html" target="_blank" rel="noopener">About the Seals of Excellence</a></div></div>
  </div>
 
  <div class="gallery">
@@ -227,21 +250,30 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
    <div><div class="av">AB</div><b>Ali Beimborn, MD</b><small>Director of Telehealth</small></div>
    <div><div class="av">SD</div><b>Steven Du, MD</b><small>Supervising Clinician Director</small></div>
   </div></div>
-  <div class="contact"><small>General questions?</small><a href="mailto:SCU@mcw.edu">SCU@mcw.edu</a><a class="gbtn arrow" style="color:#fff;margin:0">View Full Board &amp; Leadership</a></div>
+  <div class="contact"><small>General questions?</small><a href="mailto:scu_volunteers@mcw.edu">scu_volunteers@mcw.edu</a><a class="gbtn arrow" style="color:#fff;margin:0">View Full Board &amp; Leadership</a></div>
  </section>
 
- <section class="visit">
+ <section class="visit" id="visit">
   <div>
    <div class="row"><svg class="i" viewBox="0 0 24 24"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Visit Us</b><br>1121 E. North Ave.<br>Milwaukee, WI 53212</div></div>
    <div class="row"><svg class="i" viewBox="0 0 24 24"><path d="M5 3h4l2 5-3 2a11 11 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><a class="tel" href="tel:+14145882865"><b>(414) 588-2865</b></a></div>
    <div class="row" style="margin:0"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Saturday mornings</b><br><b>8:00 – 11:00 a.m.</b></div></div>
   </div>
-  <div class="map"><div class="pin"><b>📍 1121 E. North Ave.</b><br>Milwaukee, WI 53212</div></div>
+  <div class="map"><iframe title="Map: Saturday Clinic for the Uninsured, 1121 E. North Ave., Milwaukee" src="https://www.google.com/maps?q=1121+E+North+Ave,+Milwaukee,+WI+53212&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
   <div class="connect"><h4>Connect With SCU</h4><p>Stay up to date on clinic news, opportunities, and community impact.</p>
-   <div class="soc"><span>f</span><span>◎</span><span>in</span></div><small>Support our mission</small><br><a class="donate">♡ Donate Now →</a></div>
+   <div class="soc"><a class="ig" href="https://www.instagram.com/saturdayclinic/" target="_blank" rel="noopener" aria-label="SCU on Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>@saturdayclinic</a></div><small>Support our mission</small><br><a class="donate">♡ Donate Now →</a><p class="dnote">When giving, choose <b>Gift Designation → Other</b> and enter &ldquo;The Saturday Clinic for the Uninsured.&rdquo;</p></div>
  </section>
 </main>
 <footer style="margin-top:0"><div class="wrap"><div class="mark">MEDICAL COLLEGE<br>OF WISCONSIN</div><div class="links">Privacy Policy &nbsp;|&nbsp; Accessibility &nbsp;|&nbsp; Non-Discrimination<br>© 2025 Medical College of Wisconsin. All rights reserved.</div></div></footer>
+<div class="modal-bg" id="svc" role="dialog" aria-modal="true" aria-labelledby="svct"><div class="modal svc-modal"><div class="top"><span class="badge">Free or discounted care</span><h3 id="svct">Current Services</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">
+<h5>Primary Care</h5>
+<p class="lead">Management of conditions, including:</p>
+<ul class="cols"><li>High blood pressure</li><li>Diabetes</li><li>Infections</li><li>Vision</li><li>High cholesterol</li><li>Asthma</li><li>Rashes, joint/back pain</li><li>Mental health</li></ul>
+<ul><li>Basic women&rsquo;s health (mammograms &amp; Pap smears)</li><li>STI testing, including HIV</li><li>Routine health visits, work physicals, and screenings</li><li>Free or discounted prescription medications and labs (performed at Ascension Columbia St. Mary&rsquo;s Hospital)</li><li>Social work consults</li><li>Health education</li><li>Free or discounted specialty clinics (referral needed)</li></ul>
+<h5>Specialty Care</h5>
+<p><a class="spec arrow" href="https://canva.link/umow9xck7mhzxsl" target="_blank" rel="noopener">See our specialty clinics</a></p>
+<p class="fine">Services may change. For the most up-to-date list, call <a href="tel:+14145882865">(414) 588-2865</a>.</p>
+</div></div></div>
 <div class="modal-bg" id="mb" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="modal"><div class="top"><span class="badge">Coming Soon</span><h3 id="mt"></h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">This would lead to a page about <b id="mn"></b>! We're still building it — check back soon.<br><button class="ok">Got it</button></div></div></div>
 <script>
 (function(){
@@ -254,12 +286,17 @@ a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
  }
  function open(e){e.preventDefault();var t=label(this);mt.textContent=t;mn.textContent=t;mb.classList.add('show');mb.querySelector('.ok').focus();}
  function close(){mb.classList.remove('show');}
- document.querySelectorAll('a:not([href^="tel:"]):not([href^="mailto:"]),.soc span,.search').forEach(function(el){el.addEventListener('click',open);});
- var lbl={'f':'Facebook','◎':'Instagram','in':'LinkedIn'};
- document.querySelectorAll('.soc span').forEach(function(el){el.setAttribute('aria-label','SCU on '+lbl[el.textContent.trim()]);});
+ document.querySelectorAll('a:not([href]):not(#svc-open),.search').forEach(function(el){el.addEventListener('click',open);});
  mb.addEventListener('click',function(e){if(e.target===mb)close();});
  mb.querySelector('.x').onclick=close;mb.querySelector('.ok').onclick=close;
  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();setMenu(false);}});
+
+ var sv=document.getElementById('svc'),so=document.getElementById('svc-open');
+ function svOpen(e){if(e)e.preventDefault();sv.classList.add('show');sv.querySelector('.x').focus();}
+ function svClose(){sv.classList.remove('show');}
+ so.addEventListener('click',svOpen);so.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')svOpen(e);});
+ sv.addEventListener('click',function(e){if(e.target===sv)svClose();});sv.querySelector('.x').onclick=svClose;
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')svClose();});
  var mbtn=document.querySelector('.menu-btn'),mm=document.getElementById('mmenu');
  function setMenu(o){mm.classList.toggle('open',o);mbtn.setAttribute('aria-expanded',o);}
  mbtn.addEventListener('click',function(e){e.stopPropagation();setMenu(!mm.classList.contains('open'));});
