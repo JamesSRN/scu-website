@@ -47,8 +47,8 @@ header{position:relative}
 .ql{background:var(--bg);margin-top:16px;padding:24px 22px 22px;border-radius:4px}
 .ql h2,.sec h2{color:var(--green);font-weight:500;font-size:22px}
 .ql .note{font-size:12px;margin:6px 0 16px;max-width:300px}
-.qgrid{display:grid;grid-template-columns:repeat(3,1fr) 1.45fr;gap:10px}
-.q{background:#fff;border:1px solid #e1e4e3;border-radius:4px;padding:18px 16px 14px;display:grid;grid-template-columns:42px 1fr;gap:10px;position:relative;min-height:126px}
+.qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.q{background:#fff;border:1px solid #e1e4e3;border-radius:4px;padding:16px 16px 30px;display:grid;grid-template-columns:42px 1fr;gap:10px;position:relative;align-content:start}
 .q svg{width:34px;height:34px;stroke:var(--green);fill:none;stroke-width:1.5}
 .q h4{color:var(--green);font-weight:500;font-size:15px;line-height:1.2}
 .q p{font-size:11.5px;color:var(--muted);margin-top:8px}
@@ -79,7 +79,7 @@ header{position:relative}
 .visit{background:var(--green);color:#fff;border-radius:6px;margin-top:22px;display:grid;grid-template-columns:220px 1fr 240px;gap:24px;padding:20px 24px}
 .visit .row{display:flex;gap:14px;margin-bottom:22px;font-size:15px}
 .tel{text-decoration:none}.tel:hover,a[href^="mailto:"]:hover{text-decoration:underline}
-.legacy{background:#fff;border:1px solid #e1e4e3;border-left:4px solid #c79a3b;border-radius:4px;padding:16px 18px 14px}
+.leg-modal{max-width:460px}.leg-modal .legacy li{font-size:14px;margin-bottom:10px}.leg-modal .legacy li b{flex:0 0 40px}.leg-modal .legacy li::before{top:5px}.leg-modal .fine{font-size:12px;color:var(--muted);margin-top:8px}
 .legacy h4{color:var(--green);font-weight:500;font-size:15px;line-height:1.2}.legacy .sub{font-size:10.5px;color:#a5791f;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin:3px 0 10px}
 .legacy ol{list-style:none;position:relative;padding-left:14px;border-left:1px solid #d6dedb;margin-left:4px}
 .legacy li{position:relative;font-size:11.5px;line-height:1.3;margin-bottom:6px;display:flex;gap:8px;color:var(--muted)}
@@ -120,7 +120,7 @@ svg.i{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8;flex:0 0 22p
 .has-more .menu-btn{display:inline-flex}
 .mmenu a{display:none}.mmenu a.show{display:block}.mmenu .sep{display:none}.mmenu .sep.show{display:block}
 @media(max-width:1060px){.logo{width:150px;height:158px}.nav1 .wrap,.nav2 .wrap{padding-left:194px}}
-@media(max-width:1100px){.qgrid{grid-template-columns:1fr 1fr}.legacy{grid-column:1/-1}}
+@media(max-width:1100px){.qgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){
  .logo{width:112px;height:118px;left:16px}
  .nav1 .wrap,.nav2 .wrap{padding-left:140px}
@@ -154,7 +154,7 @@ a:hover.arrow::after,.q:hover::after{transform:translateX(4px)}
 .search i{transition:background .2s}.search:hover i{background:#245850}
 .wbtn{transition:background .2s,color .2s}.wbtn:hover{background:#c79a3b;color:#fff}
 .q{transition:box-shadow .25s,border-color .25s}.q:hover{box-shadow:0 6px 16px rgba(0,0,0,.08);border-color:#2f6e66}
-.link,.legacy .lg{transition:opacity .2s}.link:hover,.legacy .lg:hover{opacity:.75}
+.link{transition:opacity .2s}.link:hover{opacity:.75}
 .gbtn{transition:background .2s}.gbtn:hover{background:#0e2b73}
 a[href^="mailto:"]:hover,.tel:hover{text-decoration:underline}
 .soc span{transition:background .2s,color .2s}.soc span:hover{background:#fff;color:#2f6e66}
@@ -225,15 +225,7 @@ html{scroll-behavior:smooth}
    <a class="q" href="https://canva.link/3acdd45ynbl1ln7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6 2h9l4 4v16H6z M14 2v5h5 M9 12h7 M9 16h7"/></svg><div><h4>Updated Welcome Packet</h4><p>Get important info before your visit.</p></div></a>
    <a class="q" href="#visit"><svg viewBox="0 0 24 24"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h4>Location &amp; Hours</h4><p>Find our address, parking info, and clinic hours.</p></div></a>
   
-  <div class="legacy"><h4>Our Legacy</h4><p class="sub">Serving Milwaukee since 1991</p>
-   <ol>
-    <li><b>1991</b><span>Founded as a student-run, walk-in free clinic</span></li>
-    <li><b>2007</b><span>Humanitarian in Medicine Award, Milwaukee Academy of Medicine</span></li>
-    <li><b>2017</b><span>First MCW School of Pharmacy students join the team</span></li>
-    <li><b>2020</b><span>Telemedicine launched during COVID-19</span></li>
-    <li><b>2023</b><span>WAFCC Gold Seal &mdash; the only student-run clinic to earn it</span></li>
-   </ol>
-   <a class="lg arrow">Read our full history</a></div>
+  <a class="q" id="leg-open" role="button" tabindex="0"><svg viewBox="0 0 24 24"><path d="M3 21h18M4 10h16M12 3l8 5H4z"/><path d="M6 10v8M10 10v8M14 10v8M18 10v8"/></svg><div><h4>Our Legacy</h4><p>Serving Milwaukee since 1991 — explore our history.</p></div></a>
   </div></section>
 
  <div class="about">
@@ -272,6 +264,16 @@ html{scroll-behavior:smooth}
  </section>
 </main>
 <footer style="margin-top:0"><div class="wrap"><div class="mark">MEDICAL COLLEGE<br>OF WISCONSIN</div><div class="links">Privacy Policy &nbsp;|&nbsp; Accessibility &nbsp;|&nbsp; Non-Discrimination<br>© 2025 Medical College of Wisconsin. All rights reserved.</div></div></footer>
+<div class="modal-bg" id="leg" role="dialog" aria-modal="true" aria-labelledby="legt"><div class="modal leg-modal"><div class="top"><span class="badge">Since 1991</span><h3 id="legt">Our Legacy</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd legacy">
+<ol>
+    <li><b>1991</b><span>Founded as a student-run, walk-in free clinic</span></li>
+    <li><b>2007</b><span>Humanitarian in Medicine Award, Milwaukee Academy of Medicine</span></li>
+    <li><b>2017</b><span>First MCW School of Pharmacy students join the team</span></li>
+    <li><b>2020</b><span>Telemedicine launched during COVID-19</span></li>
+    <li><b>2023</b><span>WAFCC Gold Seal &mdash; the only student-run clinic to earn it</span></li>
+   </ol>
+<p class="fine">Our full history page is coming soon.</p>
+</div></div></div>
 <div class="modal-bg" id="svc" role="dialog" aria-modal="true" aria-labelledby="svct"><div class="modal svc-modal"><div class="top"><span class="badge">Free or discounted care</span><h3 id="svct">Current Services</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">
 <h5>Primary Care</h5>
 <p class="lead">Management of conditions, including:</p>
@@ -293,7 +295,7 @@ html{scroll-behavior:smooth}
  }
  function open(e){e.preventDefault();var t=label(this);mt.textContent=t;mn.textContent=t;mb.classList.add('show');mb.querySelector('.ok').focus();}
  function close(){mb.classList.remove('show');}
- document.querySelectorAll('a:not([href]):not(#svc-open),.search').forEach(function(el){el.addEventListener('click',open);});
+ document.querySelectorAll('a:not([href]):not(#svc-open):not(#leg-open),.search').forEach(function(el){el.addEventListener('click',open);});
  mb.addEventListener('click',function(e){if(e.target===mb)close();});
  mb.querySelector('.x').onclick=close;mb.querySelector('.ok').onclick=close;
  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();setMenu(false);}});
@@ -304,6 +306,13 @@ html{scroll-behavior:smooth}
  so.addEventListener('click',svOpen);so.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')svOpen(e);});
  sv.addEventListener('click',function(e){if(e.target===sv)svClose();});sv.querySelector('.x').onclick=svClose;
  document.addEventListener('keydown',function(e){if(e.key==='Escape')svClose();});
+
+ var lg=document.getElementById('leg'),lo=document.getElementById('leg-open');
+ function lgOpen(e){if(e)e.preventDefault();lg.classList.add('show');lg.querySelector('.x').focus();}
+ function lgClose(){lg.classList.remove('show');}
+ lo.addEventListener('click',lgOpen);lo.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')lgOpen(e);});
+ lg.addEventListener('click',function(e){if(e.target===lg)lgClose();});lg.querySelector('.x').onclick=lgClose;
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')lgClose();});
  var mbtn=document.querySelector('.menu-btn'),mm=document.getElementById('mmenu');
  function setMenu(o){mm.classList.toggle('open',o);mbtn.setAttribute('aria-expanded',o);}
  mbtn.addEventListener('click',function(e){e.stopPropagation();setMenu(!mm.classList.contains('open'));});
