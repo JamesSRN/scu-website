@@ -196,6 +196,13 @@ html{scroll-behavior:smooth}
 @media(max-width:820px){.gi{position:relative}.gcap{font-size:16px}}
 .leg-story{margin-top:10px;font-size:14px}.leg-modal .spec{font-weight:600;color:#712b6b}.spec:hover{text-decoration:underline}
 .visit .tele span{font-size:15px;opacity:.9}
+.wp-modal{max-width:440px}.wp-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.wp-btn{display:flex;flex-direction:column;gap:2px;border:1.5px solid #2f6e66;border-radius:8px;padding:14px 16px;color:#2f6e66;transition:background .2s,color .2s}
+.wp-btn .lang{font-weight:600;font-size:16px}.wp-btn .sub{font-size:12px;opacity:.85}
+.wp-btn:hover{background:#2f6e66;color:#fff}
+@media(max-width:420px){.wp-btns{grid-template-columns:1fr}}
+.m-logo{display:flex;justify-content:center;padding:4px 0 16px;border-top:1px solid #eef0ef;margin:0 26px}
+.m-logo img{height:42px;width:auto;opacity:.9;margin-top:12px}
 </style></head><body>
 <header>
  <div class="nav1"><div class="wrap"><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
@@ -224,7 +231,7 @@ html{scroll-behavior:smooth}
   <p class="note">*Please note these may change. For the most updated list please call our clinic at <a class="tel" href="tel:+14145882865"><b>(414) 588-2865</b></a>.</p>
   <div class="qgrid">
    <a class="q" id="svc-open" role="button" tabindex="0"><svg viewBox="0 0 24 24"><path d="M5 3v6a4 4 0 0 0 8 0V3M9 13v3a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="12" r="2"/></svg><div><h4>Current Services</h4><p>Primary care &amp; specialty — view our up-to-date service list.</p></div></a>
-   <a class="q" href="https://canva.link/3acdd45ynbl1ln7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6 2h9l4 4v16H6z M14 2v5h5 M9 12h7 M9 16h7"/></svg><div><h4>Updated Welcome Packet</h4><p>Get important info before your visit.</p></div></a>
+   <a class="q" id="wp-open" role="button" tabindex="0"><svg viewBox="0 0 24 24"><path d="M6 2h9l4 4v16H6z M14 2v5h5 M9 12h7 M9 16h7"/></svg><div><h4>Updated Welcome Packet</h4><p>Get important info before your visit.</p></div></a>
    <a class="q" href="#visit"><svg viewBox="0 0 24 24"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h4>Location &amp; Hours</h4><p>Find our address, parking info, and clinic hours.</p></div></a>
   
   <a class="q" id="leg-open" role="button" tabindex="0"><svg viewBox="0 0 24 24"><path d="M3 21h18M4 10h16M12 3l8 5H4z"/><path d="M6 10v8M10 10v8M14 10v8M18 10v8"/></svg><div><h4>Our Legacy</h4><p>Serving Milwaukee since 1991 — explore our history.</p></div></a>
@@ -277,6 +284,10 @@ html{scroll-behavior:smooth}
    </ol>
 <p class="leg-story"><a class="spec arrow" href="https://www.mcw.edu/mcwknowledge/mcw-stories/saturday-clinic-for-the-uninsured-achieves-gold-seal-of-excellence" target="_blank" rel="noopener">Read the MCW story on our Gold Seal</a></p>
 </div></div></div>
+<div class="modal-bg" id="wp" role="dialog" aria-modal="true" aria-labelledby="wpt"><div class="modal wp-modal"><div class="top"><span class="badge">Before your visit</span><h3 id="wpt">Welcome Packet</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">
+<p>Choose your language to open the welcome packet (PDF).</p>
+<div class="wp-btns"><a class="wp-btn" href="https://www.mcw.edu/-/media/MCW/Departments/Family-and-Community-Medicine/SCU/Saturday-Clinic-for-the-Uninsured-Welcome-Packet-English.pdf" target="_blank" rel="noopener"><span class="lang">English</span><span class="sub">Welcome Packet &middot; PDF</span></a><a class="wp-btn" href="https://www.mcw.edu/-/media/MCW/Departments/Family-and-Community-Medicine/SCU/Saturday-Clinic-for-the-Uninsured-Welcome-Packet-Spanish.pdf" target="_blank" rel="noopener" lang="es"><span class="lang">Español</span><span class="sub">Paquete de bienvenida &middot; PDF</span></a></div>
+</div></div></div>
 <div class="modal-bg" id="svc" role="dialog" aria-modal="true" aria-labelledby="svct"><div class="modal svc-modal"><div class="top"><span class="badge">Free or discounted care</span><h3 id="svct">Current Services</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">
 <h5>Primary Care</h5>
 <p class="lead">Management of conditions, including:</p>
@@ -298,7 +309,7 @@ html{scroll-behavior:smooth}
  }
  function open(e){e.preventDefault();var t=label(this);mt.textContent=t;mn.textContent=t;mb.classList.add('show');mb.querySelector('.ok').focus();}
  function close(){mb.classList.remove('show');}
- document.querySelectorAll('a:not([href]):not(#svc-open):not(#leg-open),.search').forEach(function(el){el.addEventListener('click',open);});
+ document.querySelectorAll('a:not([href]):not(#svc-open):not(#leg-open):not(#wp-open),.search').forEach(function(el){el.addEventListener('click',open);});
  mb.addEventListener('click',function(e){if(e.target===mb)close();});
  mb.querySelector('.x').onclick=close;mb.querySelector('.ok').onclick=close;
  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();setMenu(false);}});
@@ -316,6 +327,15 @@ html{scroll-behavior:smooth}
  lo.addEventListener('click',lgOpen);lo.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')lgOpen(e);});
  lg.addEventListener('click',function(e){if(e.target===lg)lgClose();});lg.querySelector('.x').onclick=lgClose;
  document.addEventListener('keydown',function(e){if(e.key==='Escape')lgClose();});
+
+ var wp=document.getElementById('wp'),wo=document.getElementById('wp-open');
+ function wpOpen(e){if(e)e.preventDefault();wp.classList.add('show');wp.querySelector('.x').focus();}
+ function wpClose(){wp.classList.remove('show');}
+ wo.addEventListener('click',wpOpen);wo.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')wpOpen(e);});
+ wp.addEventListener('click',function(e){if(e.target===wp)wpClose();});wp.querySelector('.x').onclick=wpClose;
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')wpClose();});
+
+ document.querySelectorAll('.modal').forEach(function(m){var d=document.createElement('div');d.className='m-logo';d.innerHTML='<img src="img/scu-logo.png" alt="Saturday Clinic for the Uninsured">';m.appendChild(d);});
  var mbtn=document.querySelector('.menu-btn'),mm=document.getElementById('mmenu');
  function setMenu(o){mm.classList.toggle('open',o);mbtn.setAttribute('aria-expanded',o);}
  mbtn.addEventListener('click',function(e){e.stopPropagation();setMenu(!mm.classList.contains('open'));});
