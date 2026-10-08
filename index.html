@@ -35,7 +35,7 @@ header{position:relative}
 /* cards */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
 .card{position:relative;border-radius:6px;overflow:hidden;background:var(--green);color:#fff;min-height:310px;display:flex;flex-direction:column;justify-content:flex-end}
-.card{justify-content:flex-start}.card .ph{position:relative;height:250px;margin-bottom:-70px;background-size:cover;background-position:center}
+.card{justify-content:flex-start}.card .ph{position:relative;height:300px;margin-bottom:-60px;background-size:cover;background-position:center}
 .card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,84,70,0) 35%,var(--green) 100%)}
 .card .body{position:relative;padding:0 22px 24px}
 .ic{width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;margin-bottom:12px}
@@ -214,6 +214,7 @@ html{scroll-behavior:smooth}
 .visit .tele a{font-size:15px;opacity:.9;text-decoration:underline;text-underline-offset:3px}
 .visit .appt{font-size:14px;opacity:.85}
 .visit .appt-link{font-size:15px;opacity:.9;text-decoration:underline;text-underline-offset:3px}
+.card .ph-chairs::after{background:linear-gradient(180deg,rgba(11,84,70,0) 68%,var(--green) 100%)}
 </style></head><body>
 <header>
  <div class="nav1"><div class="wrap"><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
@@ -233,7 +234,7 @@ html{scroll-behavior:smooth}
   <div class="card"><div class="ph" style="background-image:url(img/volunteers.jpg);background-position:center 25%"></div><div class="body">
    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10z"/></svg></div>
    <h3>For Volunteers</h3><p>Physician and volunteer sign-up is open.<br>Student volunteer sign-up coming soon.</p><a class="wbtn arrow" href="https://mcwisc.co1.qualtrics.com/jfe/form/SV_d0GLzaxTZ0Vi3Ii" target="_blank" rel="noopener">Physician Sign Up</a><br><a class="wbtn arrow" href="https://mcwisc.co1.qualtrics.com/jfe/form/SV_6scc5P5tOGd8ngq" target="_blank" rel="noopener">Volunteer Sign Up</a></div></div>
-  <div class="card"><div class="ph" style="background-image:url(img/chairs.jpg);background-position:center top"></div><div class="body">
+  <div class="card"><div class="ph ph-chairs" style="background-image:url(img/chairs.jpg);background-position:center top"></div><div class="body">
    <div class="ic"><svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
    <h3>For Partnerships</h3><p>Collaborate with SCU and our<br>FQ3 network of partner clinics.</p><a class="wbtn arrow">Partner with SCU</a></div></div>
  </div>
