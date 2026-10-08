@@ -54,7 +54,7 @@ body.y27 .pill{transform:translateX(100%)}
 <script>
 var tiles=[].slice.call(document.querySelectorAll('.tile')),btns=document.querySelectorAll('.toggle button'),slots=[].slice.call(document.querySelectorAll('.slot'));
 function show(y){document.body.classList.toggle('y27',y==='27');btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.y===y)});tiles.forEach(function(t){t.classList.toggle('flip',y==='27')});}
-var auto=setTimeout(function(){show('27')},3500);
+var auto=setTimeout(function(){show('27')},1500);
 function stopAuto(){clearTimeout(auto)}
 btns.forEach(function(b){b.onclick=function(){stopAuto();show(b.dataset.y)}});
 function closeAll(except){slots.forEach(function(s){if(s!==except)s.classList.remove('open')})}
