@@ -227,6 +227,16 @@ html{scroll-behavior:smooth}
 .pf-note{font-size:11.5px;color:var(--muted);text-align:center;margin-top:8px}
 .pf-done{text-align:center;padding:18px 0 6px}.pf-done h4{color:#2f6e66;font-size:20px;margin-bottom:6px}
 @media(max-width:520px){.pf-row{grid-template-columns:1fr;gap:0}}
+.pf-flyer{margin-bottom:12px}.pf-flyer>b{display:block;font-size:13px;font-weight:600;color:#2f6e66;margin-bottom:5px}.pf-flyer em{font-weight:400;color:var(--muted);font-style:normal}
+#pf-form .pf-drop{flex-direction:row;align-items:center;gap:12px;border:1.5px dashed #9fb6b0;border-radius:8px;padding:12px 14px;cursor:pointer;background:#f6f9f8;transition:border-color .2s,background .2s;margin-bottom:8px;position:relative}
+#pf-form .pf-drop[hidden]{display:none}
+.pf-drop:hover,.pf-drop.drag{border-color:#2f6e66;background:#eef4f2}
+#pf-form .pf-drop input{position:absolute;opacity:0;width:1px;height:1px;padding:0;border:0}
+.pf-drop-ic{font-size:20px}#pf-form .pf-drop-txt{display:flex;flex-direction:column;font-size:14px;color:#2f6e66;font-weight:600}.pf-drop-txt small{font-weight:400;color:var(--muted);font-size:12px}
+.pf-file-chip{display:flex;align-items:center;justify-content:space-between;background:#eef4f2;border:1px solid #cfe0db;border-radius:8px;padding:8px 12px;font-size:13.5px;color:#1d2b2a;margin-bottom:8px}.pf-file-chip[hidden]{display:none}
+.pf-file-x{background:none;border:0;font-size:20px;color:#6b7775;cursor:pointer;line-height:1}
+.pf-file-err{color:#b3261e;font-size:12.5px;margin:-2px 0 8px}
+#pf-form .pf-or{margin-bottom:0}.pf-or b{font-weight:600;color:#6b7775;font-size:12.5px}
 </style></head><body>
 <header>
  <div class="nav1"><div class="wrap"><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
@@ -319,8 +329,14 @@ html{scroll-behavior:smooth}
 <div class="pf-row"><label><b>Role / Title</b><input name="role" autocomplete="organization-title"></label><label><b>Email <span>*</span></b><input name="email" type="email" required autocomplete="email"></label></div>
 <label><b>Phone number</b><input name="phone" type="tel" autocomplete="tel"></label>
 <label><b>Partnership idea <span>*</span></b><textarea name="idea" rows="4" required placeholder="Tell us how you&rsquo;d like to collaborate&hellip;"></textarea></label>
+<div class="pf-flyer"><b>Flyer or info sheet <em>(optional)</em></b>
+<label class="pf-drop" for="pf-file"><input type="file" id="pf-file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png"><span class="pf-drop-ic">&#128206;</span><span class="pf-drop-txt">Upload a flyer<small>PDF, JPG or PNG &middot; max 5 MB</small></span></label>
+<div class="pf-file-chip" hidden><span class="pf-file-name"></span><button type="button" class="pf-file-x" aria-label="Remove file">&times;</button></div>
+<p class="pf-file-err" hidden></p>
+<label class="pf-or"><b>or paste a link</b><input name="flyerLink" type="url" placeholder="https://canva.com/&hellip; or a Google Drive link"></label></div>
+<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0">
 <button type="submit" class="pf-submit">Submit interest</button>
-<p class="pf-note">Sample form &mdash; submissions aren&rsquo;t sent yet.</p>
+<p class="pf-note">Your info goes only to the SCU board at scuboard@mcw.edu.</p>
 </form>
 <div class="pf-done" hidden><h4>Thank you!</h4><p>We&rsquo;ve received your interest and will reach out soon.</p></div>
 </div></div></div>
@@ -379,7 +395,32 @@ html{scroll-behavior:smooth}
  po.addEventListener('click',pfOpen);po.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')pfOpen(e);});
  pf.addEventListener('click',function(e){if(e.target===pf)pfClose();});pf.querySelector('.x').onclick=pfClose;
  document.addEventListener('keydown',function(e){if(e.key==='Escape')pfClose();});
- pff.addEventListener('submit',function(e){e.preventDefault();var ok=true;pff.querySelectorAll('[required]').forEach(function(f){var v=f.value.trim()&&(f.type!=='email'||/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value));f.classList.toggle('bad',!v);if(!v&&ok){f.focus();ok=false;}});if(!ok)return;pff.hidden=true;pf.querySelector('.pf-done').hidden=false;});
+
+ var pfFile=document.getElementById('pf-file'),pfChip=pff.querySelector('.pf-file-chip'),pfErr=pff.querySelector('.pf-file-err'),pfDrop=pff.querySelector('.pf-drop'),pfPicked=null;
+ var PF_TYPES={'application/pdf':1,'image/jpeg':1,'image/png':1},PF_MAX=5*1024*1024;
+ function pfSet(f){pfErr.hidden=true;if(!f)return;
+  if(!PF_TYPES[f.type]){pfErr.textContent='Please choose a PDF, JPG or PNG file.';pfErr.hidden=false;pfFile.value='';return;}
+  if(f.size>PF_MAX){pfErr.textContent='That file is '+(f.size/1048576).toFixed(1)+' MB — the limit is 5 MB.';pfErr.hidden=false;pfFile.value='';return;}
+  pfPicked=f;pfChip.querySelector('.pf-file-name').textContent='📎 '+f.name+' ('+(f.size>1048576?(f.size/1048576).toFixed(1)+' MB':Math.max(1,Math.round(f.size/1024))+' KB')+')';pfChip.hidden=false;pfDrop.hidden=true;}
+ pfFile.addEventListener('change',function(){pfSet(pfFile.files[0]);});
+ pff.querySelector('.pf-file-x').onclick=function(){pfPicked=null;pfFile.value='';pfChip.hidden=true;pfDrop.hidden=false;};
+ ['dragover','dragenter'].forEach(function(t){pfDrop.addEventListener(t,function(e){e.preventDefault();pfDrop.classList.add('drag');});});
+ ['dragleave','drop'].forEach(function(t){pfDrop.addEventListener(t,function(e){e.preventDefault();pfDrop.classList.remove('drag');if(t==='drop'&&e.dataTransfer.files[0])pfSet(e.dataTransfer.files[0]);});});
+ function pfRead(f){return new Promise(function(res,rej){var r=new FileReader();r.onload=function(){res(String(r.result).split(',')[1]);};r.onerror=rej;r.readAsDataURL(f);});}
+ var PARTNER_FORM_ENDPOINT=''; /* paste the Google Apps Script web-app URL (ends in /exec) here */
+ function deviceStr(){var u=navigator.userAgent,os=/iPhone|iPad/.test(u)?(/iPad/.test(u)?'iPad':'iPhone'):/Android/.test(u)?'Android':/Mac/.test(u)?'Mac':/Windows/.test(u)?'Windows':/Linux/.test(u)?'Linux':'Other',br=/Edg\//.test(u)?'Edge':/Chrome\//.test(u)?'Chrome':/Firefox\//.test(u)?'Firefox':/Safari\//.test(u)?'Safari':'Other';return os+' · '+br+' · '+screen.width+'×'+screen.height;}
+ pff.addEventListener('submit',function(e){e.preventDefault();var ok=true;pff.querySelectorAll('[required]').forEach(function(f){var v=f.value.trim()&&(f.type!=='email'||/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value));f.classList.toggle('bad',!v);if(!v&&ok){f.focus();ok=false;}});if(!ok)return;
+  var d={};new FormData(pff).forEach(function(v,k){if(typeof v==='string')d[k]=v.trim();});
+  d.submittedAt=new Date().toISOString();try{d.timezone=Intl.DateTimeFormat().resolvedOptions().timeZone;}catch(_){}
+  d.device=deviceStr();d.language=navigator.language||'';d.referrer=document.referrer?new URL(document.referrer).hostname:'';d.page=location.href.split('#')[0];
+  var btn=pff.querySelector('.pf-submit');
+  function done(){pff.hidden=true;pf.querySelector('.pf-done').hidden=false;}
+  if(!PARTNER_FORM_ENDPOINT){done();return;}
+  btn.disabled=true;btn.textContent='Sending…';
+  (pfPicked?pfRead(pfPicked).then(function(b64){d.fileData=b64;d.fileName=pfPicked.name;d.fileType=pfPicked.type;}):Promise.resolve())
+   .then(function(){return fetch(PARTNER_FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)});})
+   .then(done).catch(function(){btn.disabled=false;btn.textContent='Submit interest';alert('Sorry, that didn’t send. Please email scuboard@mcw.edu directly.');});
+ });
  var mbtn=document.querySelector('.menu-btn'),mm=document.getElementById('mmenu');
  function setMenu(o){mm.classList.toggle('open',o);mbtn.setAttribute('aria-expanded',o);}
  mbtn.addEventListener('click',function(e){e.stopPropagation();setMenu(!mm.classList.contains('open'));});
