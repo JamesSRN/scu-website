@@ -242,6 +242,14 @@ html{scroll-behavior:smooth}
 .leg-pend-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#6b7775;background:#eef1f0;border-radius:10px;padding:3px 10px;margin-bottom:8px}
 .legacy ol.pend{border-left-style:dashed}
 .legacy ol.pend li::before{background:#fff;border:2px solid #c79a3b;width:6px;height:6px}
+.ab-modal{max-width:520px;max-height:92vh;display:flex;flex-direction:column}.ab-modal .bd{overflow:auto}
+.ab-img{position:relative;height:210px;flex:0 0 210px;background:url(img/clinic_ext.jpg) center 62%/cover}
+.ab-img .x{position:absolute;top:10px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.45);color:#fff;border:0;font-size:22px;cursor:pointer}
+.ab-top{padding:16px 26px 14px}
+.ab-facts{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid #eef0ef}
+.ab-facts li{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid #eef0ef;font-size:14px}
+.ab-facts b{color:#2f6e66;font-size:13px}.ab-facts a{color:#2f6e66;font-weight:600}
+@media(max-width:480px){.ab-facts li{grid-template-columns:1fr;gap:2px}.ab-img{height:170px;flex-basis:170px}}
 </style></head><body>
 <header>
  <div class="nav1"><div class="wrap"><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
@@ -278,7 +286,7 @@ html{scroll-behavior:smooth}
 
  <div class="about">
   <div class="txt"><h2 class="sec" style="color:var(--green);font-weight:500;font-size:22px">About SCU</h2>
-   <p>The Saturday Clinic for the Uninsured (SCU) is a student-run free clinic providing comprehensive care for uninsured patients in Milwaukee. We promote health and wellness in our community while training the next generation of health professionals.</p><a class="link arrow">Learn more about SCU</a></div>
+   <p>The Saturday Clinic for the Uninsured (SCU) is a student-run free clinic providing comprehensive care for uninsured patients in Milwaukee. We promote health and wellness in our community while training the next generation of health professionals.</p><a class="link arrow" id="ab-open" role="button" tabindex="0">Learn more about SCU</a></div>
   <div class="seal"><img class="sealimg" src="img/seal.png" alt="WAFCC Gold Seal of Excellence">
    <div><h3>WAFCC Gold Seal of Excellence</h3><h4>2024, 2025 &amp; 2026<span class="dot"> &middot; </span><span class="only">The only Gold Seal clinic in Milwaukee</span></h4><p class="quote">&ldquo;WAFCC Seal of Excellence recipients demonstrate a commitment to promoting best practices and maximizing access to quality healthcare for the most vulnerable.&rdquo;</p><a class="seal-link arrow" href="https://www.wafcclinics.org/seals-of-excellence.html" target="_blank" rel="noopener">About the Seals of Excellence</a></div></div>
  </div>
@@ -327,7 +335,7 @@ html{scroll-behavior:smooth}
     <li><b>2026</b><span>Brand-new mammogram pathway for patients</span></li>
     <li><b>2026</b><span>New laptops in clinic &amp; Microsoft Teams integration</span></li>
     <li><b>2026</b><span>Virtual and in-person interpreters</span></li>
-    <li><b>2026</b><span>Student-built clinic tools for dispensary labels and multilingual intake packets</span></li>
+    <li><b>2026</b><span>Custom-built apps for clinic</span></li>
    </ol>
    <div class="leg-pending"><span class="leg-pend-tag">Pending</span>
    <ol class="pend">
@@ -358,6 +366,15 @@ html{scroll-behavior:smooth}
 </form>
 <div class="pf-done" hidden><h4>Thank you!</h4><p>We&rsquo;ve received your interest and will reach out soon.</p></div>
 </div></div></div>
+<div class="modal-bg" id="ab" role="dialog" aria-modal="true" aria-labelledby="abt"><div class="modal ab-modal"><div class="ab-img" role="img" aria-label="Ascension Family Health Center, home of the Saturday Clinic"><button class="x" aria-label="Close">&times;</button></div><div class="top ab-top"><span class="badge">Free care since 1991</span><h3 id="abt">About SCU</h3></div><div class="bd">
+<p>The Saturday Clinic for the Uninsured (SCU) is a student-run free clinic providing comprehensive care for uninsured patients in Milwaukee. We promote health and wellness in our community while training the next generation of health professionals.</p>
+<ul class="ab-facts">
+<li><b>Who we are</b><span>MCW medical and pharmacy students, supported by volunteer physicians and pharmacists</span></li>
+<li><b>Where</b><span>Ascension Columbia St. Mary&rsquo;s Family Health Center, 1121 E. North Ave.</span></li>
+<li><b>When</b><span>Saturday mornings, by appointment &mdash; call <a href="tel:+14145882865">(414) 588-2865</a></span></li>
+<li><b>What it costs</b><span>Free, with free or discounted medications and labs</span></li>
+</ul>
+</div></div></div>
 <div class="modal-bg" id="svc" role="dialog" aria-modal="true" aria-labelledby="svct"><div class="modal svc-modal"><div class="top"><span class="badge">Free or discounted care</span><h3 id="svct">Current Services</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">
 <h5>Primary Care</h5>
 <p class="lead">Management of conditions, including:</p>
@@ -379,7 +396,7 @@ html{scroll-behavior:smooth}
  }
  function open(e){e.preventDefault();var t=label(this);mt.textContent=t;mn.textContent=t;mb.classList.add('show');mb.querySelector('.ok').focus();}
  function close(){mb.classList.remove('show');}
- document.querySelectorAll('a:not([href]):not(#svc-open):not(#leg-open):not(#wp-open):not(#pf-open),.search').forEach(function(el){el.addEventListener('click',open);});
+ document.querySelectorAll('a:not([href]):not(#svc-open):not(#leg-open):not(#wp-open):not(#pf-open):not(#ab-open),.search').forEach(function(el){el.addEventListener('click',open);});
  mb.addEventListener('click',function(e){if(e.target===mb)close();});
  mb.querySelector('.x').onclick=close;mb.querySelector('.ok').onclick=close;
  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();setMenu(false);}});
@@ -439,6 +456,13 @@ html{scroll-behavior:smooth}
    .then(function(){return fetch(PARTNER_FORM_ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)});})
    .then(done).catch(function(){btn.disabled=false;btn.textContent='Submit interest';alert('Sorry, that didn’t send. Please email scuboard@mcw.edu directly.');});
  });
+
+ var ab=document.getElementById('ab'),ao=document.getElementById('ab-open');
+ function abOpen(e){if(e)e.preventDefault();ab.classList.add('show');ab.querySelector('.x').focus();}
+ function abClose(){ab.classList.remove('show');}
+ ao.addEventListener('click',abOpen);ao.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')abOpen(e);});
+ ab.addEventListener('click',function(e){if(e.target===ab)abClose();});ab.querySelector('.x').onclick=abClose;
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')abClose();});
  var mbtn=document.querySelector('.menu-btn'),mm=document.getElementById('mmenu');
  function setMenu(o){mm.classList.toggle('open',o);mbtn.setAttribute('aria-expanded',o);}
  mbtn.addEventListener('click',function(e){e.stopPropagation();setMenu(!mm.classList.contains('open'));});
