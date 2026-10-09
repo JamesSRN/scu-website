@@ -237,6 +237,11 @@ html{scroll-behavior:smooth}
 .pf-file-x{background:none;border:0;font-size:20px;color:#6b7775;cursor:pointer;line-height:1}
 .pf-file-err{color:#b3261e;font-size:12.5px;margin:-2px 0 8px}
 #pf-form .pf-or{margin-bottom:0}.pf-or b{font-weight:600;color:#6b7775;font-size:12.5px}
+.leg-modal{max-height:90vh;display:flex;flex-direction:column}.leg-modal .bd{overflow:auto}
+.leg-pending{margin-top:14px;padding-top:12px;border-top:1px dashed #d6dedb}
+.leg-pend-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#6b7775;background:#eef1f0;border-radius:10px;padding:3px 10px;margin-bottom:8px}
+.legacy ol.pend{border-left-style:dashed}
+.legacy ol.pend li::before{background:#fff;border:2px solid #c79a3b;width:6px;height:6px}
 </style></head><body>
 <header>
  <div class="nav1"><div class="wrap"><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
@@ -312,10 +317,23 @@ html{scroll-behavior:smooth}
 <ol>
     <li><b>1991</b><span>Founded as a student-run, walk-in free clinic</span></li>
     <li><b>2007</b><span>Humanitarian in Medicine Award, Milwaukee Academy of Medicine</span></li>
+    <li><b>2016</b><span>MCW President&rsquo;s Community Engagement Award</span></li>
     <li><b>2017</b><span>First MCW School of Pharmacy students join the team</span></li>
     <li><b>2020</b><span>Telemedicine launched during COVID-19</span></li>
-    <li><b>2023</b><span>WAFCC Gold Seal &mdash; the only student-run clinic to earn it</span></li>
+    <li><b>2022</b><span>NAFC Bronze &amp; WAFCC Silver Seals of Excellence, plus a second MCW President&rsquo;s Award</span></li>
+    <li><b>2023</b><span>WAFCC Gold Seal &mdash; the only student-run clinic to earn it &middot; 730 appointments &amp; 18,267 volunteer hours</span></li>
+    <li><b>2025</b><span>First SCU Public Health Fair</span></li>
+    <li><b>2026</b><span>New SCU logo, approved by MCW</span></li>
+    <li><b>2026</b><span>Brand-new mammogram pathway for patients</span></li>
+    <li><b>2026</b><span>New laptops in clinic &amp; Microsoft Teams integration</span></li>
+    <li><b>2026</b><span>Virtual and in-person interpreters</span></li>
+    <li><b>2026</b><span>Student-built clinic tools for dispensary labels and multilingual intake packets</span></li>
    </ol>
+   <div class="leg-pending"><span class="leg-pend-tag">Pending</span>
+   <ol class="pend">
+    <li><span>Point-of-care A1C testing (A1CNow+) for diabetes care</span></li>
+    <li><span>EpicCare Link access through MCW</span></li>
+   </ol></div>
 <p class="leg-story"><a class="spec arrow" href="https://www.mcw.edu/mcwknowledge/mcw-stories/saturday-clinic-for-the-uninsured-achieves-gold-seal-of-excellence" target="_blank" rel="noopener">Read the MCW story on our Gold Seal</a></p>
 </div></div></div>
 <div class="modal-bg" id="wp" role="dialog" aria-modal="true" aria-labelledby="wpt"><div class="modal wp-modal"><div class="top"><span class="badge">Before your visit</span><h3 id="wpt">Welcome Packet</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">
