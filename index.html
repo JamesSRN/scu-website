@@ -215,6 +215,18 @@ html{scroll-behavior:smooth}
 .visit .appt{font-size:14px;opacity:.85}
 .visit .appt-link{font-size:15px;opacity:.9;text-decoration:underline;text-underline-offset:3px}
 .card .ph-chairs::after{background:linear-gradient(180deg,rgba(11,84,70,0) 68%,var(--green) 100%)}
+.pf-modal{max-width:520px;max-height:92vh;display:flex;flex-direction:column}.pf-modal .bd{overflow:auto}
+.pf-intro{font-size:14.5px;margin-bottom:14px}
+#pf-form label{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;color:#2f6e66;margin-bottom:12px}
+#pf-form label b{font-weight:600}#pf-form label span{color:#712b6b}
+#pf-form input,#pf-form textarea{font:400 14px 'Fira Sans',sans-serif;color:var(--text);border:1.5px solid #cfd8d5;border-radius:6px;padding:9px 11px;transition:border-color .2s,box-shadow .2s;resize:vertical}
+#pf-form input:focus,#pf-form textarea:focus{outline:none;border-color:#2f6e66;box-shadow:0 0 0 3px rgba(47,110,102,.18)}
+#pf-form .bad{border-color:#b3261e}
+.pf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pf-submit{width:100%;background:#2f6e66;color:#fff;border:0;border-radius:24px;padding:12px;font:600 15px 'Fira Sans',sans-serif;cursor:pointer;transition:background .2s;margin-top:4px}.pf-submit:hover{background:#245850}
+.pf-note{font-size:11.5px;color:var(--muted);text-align:center;margin-top:8px}
+.pf-done{text-align:center;padding:18px 0 6px}.pf-done h4{color:#2f6e66;font-size:20px;margin-bottom:6px}
+@media(max-width:520px){.pf-row{grid-template-columns:1fr;gap:0}}
 </style></head><body>
 <header>
  <div class="nav1"><div class="wrap"><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
@@ -234,9 +246,9 @@ html{scroll-behavior:smooth}
   <div class="card"><div class="ph" style="background-image:url(img/volunteers.jpg);background-position:center 25%"></div><div class="body">
    <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.7-7 10-7 10z"/></svg></div>
    <h3>For Volunteers</h3><p>Physician and volunteer sign-up is open.<br>Student volunteer sign-up coming soon.</p><a class="wbtn arrow" href="https://mcwisc.co1.qualtrics.com/jfe/form/SV_d0GLzaxTZ0Vi3Ii" target="_blank" rel="noopener">Physician Sign Up</a><br><a class="wbtn arrow" href="https://mcwisc.co1.qualtrics.com/jfe/form/SV_6scc5P5tOGd8ngq" target="_blank" rel="noopener">Volunteer Sign Up</a></div></div>
-  <div class="card"><div class="ph ph-chairs" style="background-image:url(img/chairs.jpg);background-position:center top"></div><div class="body">
+  <div class="card"><div class="ph ph-chairs" style="background-image:url(img/partners2.jpg);background-position:center 30%"></div><div class="body">
    <div class="ic"><svg viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
-   <h3>For Partnerships</h3><p>Collaborate with SCU and our<br>FQ3 network of partner clinics.</p><a class="wbtn arrow">Partner with SCU</a></div></div>
+   <h3>For Partnerships</h3><p>Collaborate with SCU and our<br>FQ3 network of partner clinics.</p><a class="wbtn arrow" id="pf-open" role="button" tabindex="0">Partner with SCU</a></div></div>
  </div>
 
  <section class="ql"><h2>Current Services &amp; Quick Links</h2>
@@ -300,6 +312,18 @@ html{scroll-behavior:smooth}
 <p>Choose your language to open the welcome packet (PDF).</p>
 <div class="wp-btns"><a class="wp-btn" href="https://www.mcw.edu/-/media/MCW/Departments/Family-and-Community-Medicine/SCU/Saturday-Clinic-for-the-Uninsured-Welcome-Packet-English.pdf" target="_blank" rel="noopener"><span class="lang">English</span><span class="sub">Welcome Packet &middot; PDF</span></a><a class="wp-btn" href="https://www.mcw.edu/-/media/MCW/Departments/Family-and-Community-Medicine/SCU/Saturday-Clinic-for-the-Uninsured-Welcome-Packet-Spanish.pdf" target="_blank" rel="noopener" lang="es"><span class="lang">Español</span><span class="sub">Paquete de bienvenida &middot; PDF</span></a></div>
 </div></div></div>
+<div class="modal-bg" id="pf" role="dialog" aria-modal="true" aria-labelledby="pft"><div class="modal pf-modal"><div class="top"><span class="badge">Partner with SCU</span><h3 id="pft">Let&rsquo;s work together</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">
+<p class="pf-intro">We are glad to hear your interest! Please provide your info and we&rsquo;ll reach out soon!</p>
+<form id="pf-form" novalidate>
+<div class="pf-row"><label><b>Name <span>*</span></b><input name="name" required autocomplete="name"></label><label><b>Organization <span>*</span></b><input name="org" required autocomplete="organization"></label></div>
+<div class="pf-row"><label><b>Role / Title</b><input name="role" autocomplete="organization-title"></label><label><b>Email <span>*</span></b><input name="email" type="email" required autocomplete="email"></label></div>
+<label><b>Phone number</b><input name="phone" type="tel" autocomplete="tel"></label>
+<label><b>Partnership idea <span>*</span></b><textarea name="idea" rows="4" required placeholder="Tell us how you&rsquo;d like to collaborate&hellip;"></textarea></label>
+<button type="submit" class="pf-submit">Submit interest</button>
+<p class="pf-note">Sample form &mdash; submissions aren&rsquo;t sent yet.</p>
+</form>
+<div class="pf-done" hidden><h4>Thank you!</h4><p>We&rsquo;ve received your interest and will reach out soon.</p></div>
+</div></div></div>
 <div class="modal-bg" id="svc" role="dialog" aria-modal="true" aria-labelledby="svct"><div class="modal svc-modal"><div class="top"><span class="badge">Free or discounted care</span><h3 id="svct">Current Services</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">
 <h5>Primary Care</h5>
 <p class="lead">Management of conditions, including:</p>
@@ -321,7 +345,7 @@ html{scroll-behavior:smooth}
  }
  function open(e){e.preventDefault();var t=label(this);mt.textContent=t;mn.textContent=t;mb.classList.add('show');mb.querySelector('.ok').focus();}
  function close(){mb.classList.remove('show');}
- document.querySelectorAll('a:not([href]):not(#svc-open):not(#leg-open):not(#wp-open),.search').forEach(function(el){el.addEventListener('click',open);});
+ document.querySelectorAll('a:not([href]):not(#svc-open):not(#leg-open):not(#wp-open):not(#pf-open),.search').forEach(function(el){el.addEventListener('click',open);});
  mb.addEventListener('click',function(e){if(e.target===mb)close();});
  mb.querySelector('.x').onclick=close;mb.querySelector('.ok').onclick=close;
  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();setMenu(false);}});
@@ -348,6 +372,14 @@ html{scroll-behavior:smooth}
  document.addEventListener('keydown',function(e){if(e.key==='Escape')wpClose();});
 
  document.querySelectorAll('.modal').forEach(function(m){var d=document.createElement('div');d.className='m-logo';d.innerHTML='<img src="img/scu-logo.png" alt="Saturday Clinic for the Uninsured">';m.appendChild(d);});
+
+ var pf=document.getElementById('pf'),po=document.getElementById('pf-open'),pff=document.getElementById('pf-form');
+ function pfOpen(e){if(e)e.preventDefault();pf.classList.add('show');setTimeout(function(){pff.querySelector('input').focus()},50);}
+ function pfClose(){pf.classList.remove('show');}
+ po.addEventListener('click',pfOpen);po.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')pfOpen(e);});
+ pf.addEventListener('click',function(e){if(e.target===pf)pfClose();});pf.querySelector('.x').onclick=pfClose;
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')pfClose();});
+ pff.addEventListener('submit',function(e){e.preventDefault();var ok=true;pff.querySelectorAll('[required]').forEach(function(f){var v=f.value.trim()&&(f.type!=='email'||/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value));f.classList.toggle('bad',!v);if(!v&&ok){f.focus();ok=false;}});if(!ok)return;pff.hidden=true;pf.querySelector('.pf-done').hidden=false;});
  var mbtn=document.querySelector('.menu-btn'),mm=document.getElementById('mmenu');
  function setMenu(o){mm.classList.toggle('open',o);mbtn.setAttribute('aria-expanded',o);}
  mbtn.addEventListener('click',function(e){e.stopPropagation();setMenu(!mm.classList.contains('open'));});
