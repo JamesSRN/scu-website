@@ -250,6 +250,15 @@ html{scroll-behavior:smooth}
 .ab-facts li{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid #eef0ef;font-size:14px}
 .ab-facts b{color:#2f6e66;font-size:13px}.ab-facts a{color:#2f6e66;font-weight:600}
 @media(max-width:480px){.ab-facts li{grid-template-columns:1fr;gap:2px}.ab-img{height:170px;flex-basis:170px}}
+.leg-acc{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.leg-acc details{border:1px solid #e1e4e3;border-radius:8px;background:#fff;overflow:hidden}
+.leg-acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:11px 14px;font-weight:600;font-size:14.5px;color:#1d2b2a}
+.leg-acc summary::-webkit-details-marker{display:none}
+.leg-acc summary::after{content:"+";width:26px;height:26px;border-radius:50%;background:#2f6e66;color:#fff;display:grid;place-items:center;font-size:17px;line-height:1;flex:0 0 26px;transition:transform .2s}
+.leg-acc details[open] summary::after{content:"\2212"}
+.leg-acc summary:hover{background:#f6f9f8}
+.leg-acc ul{margin:0;padding:4px 16px 12px 32px;font-size:13.5px;line-height:1.5;color:#33403e;border-top:1px solid #eef0ef}
+.leg-acc li{margin:6px 0}
 </style></head><body>
 <header>
  <div class="nav1"><div class="wrap"><a data-k="n1-0">Departments &amp; Centers</a><a data-k="n1-1">Stories</a><a data-k="n1-2">Giving</a><a data-k="n1-3">Careers</a><div class="search"><span>Search</span><i><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg></i></div></div></div>
@@ -342,6 +351,22 @@ html{scroll-behavior:smooth}
     <li><span>Point-of-care A1C testing (A1CNow+) for diabetes care</span></li>
     <li><span>EpicCare Link access through MCW</span></li>
    </ol></div>
+<div class="leg-acc">
+<details><summary>Our Partners</summary><ul>
+<li>Department of Family and Community Medicine, Medical College of Wisconsin</li>
+<li>School of Pharmacy, Medical College of Wisconsin</li>
+<li>Ascension Columbia St. Mary&rsquo;s Hospital and Family Health Center</li>
+<li>Ascension Wisconsin Pharmacy</li>
+</ul></details>
+<details><summary>Funding Sources</summary><ul>
+<li>Antoinette A. &amp; Matthew Keenan Endowment</li>
+<li>The Catholic Community Foundation</li>
+<li>Epic</li>
+<li>Helen M. Cudahy Trust</li>
+<li>Dr. Kristine A. Tucker and Mr. Todd Tucker</li>
+<li>Dr. M. Colin Turner and Ms. Anne K. Valaas-Turner</li>
+</ul></details>
+</div>
 <p class="leg-story"><a class="spec arrow" href="https://www.mcw.edu/mcwknowledge/mcw-stories/saturday-clinic-for-the-uninsured-achieves-gold-seal-of-excellence" target="_blank" rel="noopener">Read the MCW story on our Gold Seal</a></p>
 </div></div></div>
 <div class="modal-bg" id="wp" role="dialog" aria-modal="true" aria-labelledby="wpt"><div class="modal wp-modal"><div class="top"><span class="badge">Before your visit</span><h3 id="wpt">Welcome Packet</h3><button class="x" aria-label="Close">&times;</button></div><div class="bd">
